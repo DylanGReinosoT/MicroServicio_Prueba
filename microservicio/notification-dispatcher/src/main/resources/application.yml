@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+  application:
+    name: notification-dispatcher
+
+app:
+  rabbitmq:
+    queue: notification.queue
+    exchange: notification.exchange
+    routingKey: notification.routing.key
+
+server:
+  port: 0

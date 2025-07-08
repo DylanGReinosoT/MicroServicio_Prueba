@@ -10,7 +10,7 @@ services:
       - "8080:8080"    # UI
     volumes:
       - cockroach1:/cockroach/cockroach-data
-    command: start-single-node --insecure --advertise-addr=crdb-node1
+    command: start-single-node --insecure --advertise-addr=crdb-nodo1
 
   cockroach2:
     image: cockroachdb/cockroach:latest
@@ -21,7 +21,7 @@ services:
       - "8081:8080"    # UI
     volumes:
       - cockroach2:/cockroach/cockroach-data
-    command: start --insecure --store=node2 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=crdb-node1:26257 --advertise-addr=crdb-node2
+    command: start --insecure --store=nodo2 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=crdb-nodo1:26257 --advertise-addr=crdb-nodo2
 
   cockroach3:
     image: cockroachdb/cockroach:latest
@@ -32,7 +32,7 @@ services:
       - "8082:8080"    # UI
     volumes:
       - cockroach3:/cockroach/cockroach-data
-    command: start --insecure --store=node3 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=crdb-node1:26257 --advertise-addr=crdb-node3
+    command: start --insecure --store=nodo3 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=crdb-nodo1:26257 --advertise-addr=crdb-nodo3
 
 volumes:
   cockroach1:

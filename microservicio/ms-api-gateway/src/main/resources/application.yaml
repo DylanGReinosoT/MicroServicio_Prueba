@@ -16,9 +16,21 @@ spring:
             - id: SensorDataController
               uri: lb://sensor-data-collector
               predicates:
-                - Path=/api/v1/sensor-readings/**
+                - Path=/api/conjunta/2p/sensor-readings/**
               filters:
-                - StripPrefix=2
+                - StripPrefix=3
+            - id: analyzer-service
+              uri: lb://ENVIRONMENTAL-ANALYZER
+              predicates:
+                - Path=/api/conjunta/2p/analyzer/**
+              filters:
+                - StripPrefix=3
+            - id: notification-service
+              uri: lb://NOTIFICATION-DISPATCHER
+              predicates:
+                - Path=/api/conjunta/2p/notification/**
+              filters:
+                - StripPrefix=3
 eureka:
   client:
     serviceUrl:

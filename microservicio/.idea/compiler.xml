@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-api-gateway" />
         <module name="ms-eureka-server" />
+        <module name="environmental-analyzer" />
       </profile>
       <profile name="Annotation profile for microservicios-evaluacion" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -18,13 +19,29 @@
         </processorPath>
         <module name="SensorDataCollector" />
       </profile>
+      <profile name="Annotation profile for notification-dispatcher" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/unknown/spring-boot-configuration-processor-unknown.jar" />
+        </processorPath>
+        <module name="notification-dispatcher" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="EnvironmentalAnalyzer" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="EnvironmentalAnalyzer" options="-parameters" />
       <module name="SensorDataCollector" options="-parameters" />
+      <module name="environmental-analyzer" options="-parameters" />
       <module name="ms-api-gateway" options="-parameters" />
       <module name="ms-eureka-server" options="-parameters" />
+      <module name="notification-dispatcher" options="-parameters" />
     </option>
   </component>
 </project>

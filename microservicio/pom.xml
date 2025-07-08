@@ -13,5 +13,7 @@
         <module>SensorDataCollector</module>
         <module>ms-eureka-server</module>
         <module>ms-api-gateway</module>
+        <module>environmental-analyzer</module>
+        <module>notification-dispatcher</module>
     </modules>
 </project>
